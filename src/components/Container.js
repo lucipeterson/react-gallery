@@ -5,6 +5,7 @@ import SearchForm from '../components/SearchForm';
 import Nav from '../components/Nav';
 import PhotoContainer from '../components/PhotoContainer';
 
+//MAIN CONTAINER FOR ALL OTHER PAGE ELEMENTS
 class Container extends PureComponent {
     constructor(props) {
         super(props);
