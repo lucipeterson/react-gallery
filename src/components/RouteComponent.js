@@ -1,8 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from '../App';
-import PhotoContainer from './PhotoContainer';
-import NotFound from './NotFound';
+import ErrorPage from './ErrorPage'
 
 const RouteComponent = () => {
     return <BrowserRouter>
@@ -11,7 +10,7 @@ const RouteComponent = () => {
                     <Route path = '/sunsets' component = {App}/>
                     <Route path = '/waterfalls' component = {App}/>
                     <Route path = '/rainbows' component = {App}/>}
-                    <Route component = {NotFound}/>
+                    <Route component = {ErrorPage}/>
             </Switch>
         </BrowserRouter>
 }

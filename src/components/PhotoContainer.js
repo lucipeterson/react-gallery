@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 import Photo from '../components/Photo';
-import NotFound from './NotFound';
 
 const PhotoContainer = props => {
     const results = props.data;
