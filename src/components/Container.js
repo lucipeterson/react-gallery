@@ -1,22 +1,18 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import '../App.css';
-import '../App.js';
 import SearchForm from '../components/SearchForm';
 import Nav from '../components/Nav';
 import PhotoContainer from '../components/PhotoContainer';
+import NotFound from './NotFound';
 
-//MAIN CONTAINER FOR ALL OTHER PAGE ELEMENTS
-class Container extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {loading:true, error:false}
+class Container extends React.Component {
+    render() {
+        return <div className="container">
+            <SearchForm handleSearch = {this.props.handleSearch} />
+            <Nav tagSearch = {this.props.tagSearch} error = {this.error} /> 
+            {this.props.data.length > 0 ? <PhotoContainer error = {this.props.error} data = {this.props.data} /> : <NotFound error = {this.props.error} />}
+        </div>
     }
-    render() {return <div class="container">
-                        <SearchForm />
-                        <Nav />
-                        <PhotoContainer />
-                    </div>   
-                        }
 }
 
 export default Container;

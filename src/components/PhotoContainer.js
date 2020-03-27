@@ -1,20 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import '../App.css';
-import '../App.js';
 import Photo from '../components/Photo';
-import NotFound from '../components/NotFound';
+import NotFound from './NotFound';
 
-class PhotoContainer extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {loading:true, error:false}
-    }
-    render() {return <div class="photo-container">
-                        <h2>Results</h2>
-                        <ul><Photo /><Photo /><Photo /><Photo /><NotFound />
-                        </ul>
-                        </div>       
-                        }
-}
+const PhotoContainer = props => {
+    const results = props.data;
+    let displayPhotos = results.map(photo => (<Photo key = {photo.id} url = {`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} />));
+    
+    return <div className = "photo-container"><ul>{displayPhotos}</ul></div>
+};
 
 export default PhotoContainer;

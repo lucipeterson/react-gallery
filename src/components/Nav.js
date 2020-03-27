@@ -1,20 +1,19 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import '../App.css';
-import '../App.js';
+import { BrowserRouter, NavLink } from 'react-router-dom';
 
-class Nav extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {loading:true, error:false}
-    }
-    render() {return <nav class="main-nav">
-                        <ul>
-                            <li><a href='#'>Cats</a></li>
-                            <li><a href='#'>Dogs</a></li>
-                            <li><a href='#'>Computers</a></li>
-                        </ul>
-                    </nav>
-                    }
-}
+const Nav = (props) => {
+    return (
+    <div>
+        <BrowserRouter>
+            <nav className = "main-nav">
+                <ul>
+                    <li><NavLink id = 'sunsets' onClick = {props.tagSearch} to ='/sunsets'>Sunsets</NavLink></li>
+                    <li><NavLink id = 'waterfalls' onClick = {props.tagSearch} to ='/waterfalls'>Waterfalls</NavLink></li>
+                    <li><NavLink id = 'rainbows' onClick = {props.tagSearch} to ='/rainbows'>Rainbows</NavLink></li>
+                </ul>
+            </nav>
+        </BrowserRouter>
+    </div>)}
 
 export default Nav;

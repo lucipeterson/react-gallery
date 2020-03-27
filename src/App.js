@@ -1,24 +1,41 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import './App.css';
 import Container from './components/Container';
+import apiKey from './config.js';
 
-//MAIN APP COMPONENT
-class App extends PureComponent {
-  constructor(props) {    
+class App extends React.Component {
+  constructor(props) {
     super(props);
-    this.state = {
-      loading: true,
-      error: false,
-      errorMessage: "",
-      defaultSubject: "",
-      defaultPhotos: [],
-      catPhotos: [],
-      dogPhotos: [],
-      computerPhotos: [],
-      photoSearch: []
-    }
+    this.state = {photos: [], error: null};
   }
-  render() {return <Container />}
+
+  tagSearch = (e) => {  
+    e.preventDefault();
+    const searchQuery = e.target.id;
+    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchQuery}&per_page=24&format=json&nojsoncallback=1`)
+    .then(response => response.json())
+    .then(responseData => {this.setState({photos:responseData.photos.photo})})
+    .catch(error => {console.log("Error fetching and parsing data", error)});
+    if ((this.searchQuery) && (this.state.photos.length > 0)) {this.setState({photos: this.photos})}
+    else this.setState({error: true})
+  }
+
+  handleSearch = (e) => {  
+    e.preventDefault();
+    const searchQuery = e.target.elements.search.value;
+    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchQuery}&per_page=24&format=json&nojsoncallback=1`)
+    .then(response => response.json())
+    .then(responseData => {this.setState({photos:responseData.photos.photo})})
+    .catch(error => {console.log("Error fetching and parsing data", error)});
+    if ((this.searchQuery) && (this.state.photos.length > 0)) {this.setState({photos: this.photos})}
+    else this.setState({error: true})
+  }
+  
+  // componentDidMount() {this.handleSearch()}
+
+  render() {
+    return (<div><a href = '/'><h1>Image Search</h1></a><Container tagSearch = {this.tagSearch} error = {this.state.error} handleSearch = {this.handleSearch} data = {this.state.photos}/></div>)
+    }
 }
 
 export default App;
