@@ -9,8 +9,11 @@ class Container extends React.Component {
     render() {
         return <div className="container">
             <SearchForm handleSearch = {this.props.handleSearch} />
-            <Nav tagSearch = {this.props.tagSearch} error = {this.error} /> 
-            {this.props.data.length > 0 ? <PhotoContainer error = {this.props.error} data = {this.props.data} /> : <NotFound searchExists = {this.props.searchExists} error = {this.props.error}/>}
+            <Nav tags = {this.props.tags} tagSearch = {this.props.tagSearch} error = {this.error} /> 
+            {this.props.data.length > 0 ? <PhotoContainer 
+            error = {this.props.error} 
+            data = {this.props.data} 
+            /> : <NotFound searchExists = {this.props.searchExists} error = {this.props.error}/>}
         </div>
     }
 }

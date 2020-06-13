@@ -8,9 +8,9 @@ const Nav = (props) => {
         <BrowserRouter>
             <nav className = "main-nav">
                 <ul>
-                    <li><NavLink id = 'sunsets' onClick = {props.tagSearch} to ='/sunsets'>Sunsets</NavLink></li>
-                    <li><NavLink id = 'waterfalls' onClick = {props.tagSearch} to ='/waterfalls'>Waterfalls</NavLink></li>
-                    <li><NavLink id = 'rainbows' onClick = {props.tagSearch} to ='/rainbows'>Rainbows</NavLink></li>
+                    <li><NavLink id = 'sunsets' to = '/sunsets'>Sunsets</NavLink></li>
+                    <li><NavLink id = 'waterfalls' to ='/waterfalls'>Waterfalls</NavLink></li>
+                    <li><NavLink id = 'rainbows' to ='/rainbows'>Rainbows</NavLink></li>
                 </ul>
             </nav>
         </BrowserRouter>
