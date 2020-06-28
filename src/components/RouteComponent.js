@@ -2,15 +2,15 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from '../App';
 import ErrorPage from './ErrorPage'
-// // import TagSearch from './TagSearch';
-// import PhotoContainer from './PhotoContainer';
-import TagSearch from './TagSearch';
+import Container from './Container';
+import PhotoContainer from './PhotoContainer'
+import TestComponent from './Test'
 
 const RouteComponent = () => {
     return <BrowserRouter>
             <Switch>
                     <Route exact path = '/' component = {App}/>
-                    <Route path = ':id' component = {TagSearch}/>
+                    <Route exact path = '/:id' render = {TestComponent}/>
                     <Route component = {ErrorPage}/>
             </Switch>
         </BrowserRouter>
