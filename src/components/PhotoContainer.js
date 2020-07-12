@@ -4,7 +4,6 @@ import Photo from '../components/Photo';
 
 //DISPLAYS AN IMAGE GALLERY TO CONTAIN THE PHOTOS RETRIEVED FROM THE FLICKR API
 const PhotoContainer = props => {
-    console.log(props.sunsets);
     const sunsets = props.sunsets;
     const waterfalls = props.waterfalls;
     const rainbows = props.rainbows;

@@ -1,16 +1,15 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from '../App';
-import ErrorPage from './ErrorPage'
+import ErrorPage from './ErrorPage';
 import Container from './Container';
-import PhotoContainer from './PhotoContainer'
-import TestComponent from './Test'
+import TagSearch from './TagSearch';
 
-const RouteComponent = () => {
+const RouteComponent = (props) => {
     return <BrowserRouter>
             <Switch>
                     <Route exact path = '/' component = {App}/>
-                    <Route exact path = '/:id' render = {TestComponent}/>
+                    <Route path = '/:id' render = {(props)=><Container data = {props.sunsets}/>}/>
                     <Route component = {ErrorPage}/>
             </Switch>
         </BrowserRouter>

@@ -7,7 +7,7 @@ import NotFound from './NotFound';
 
 //CONTAINS THE IMAGE SEARCH, THE TAG BUTTONS, AND EITHER A PHOTO GALLERY OR A NOT FOUND PAGE IF THERE ARE NO RESULTS.
 const Container = props => {
-    console.log(props.sunsets);
+    console.log(props.data)
     //REMOVED CONDITIONAL STATEMENT PRECLUDING NOTFOUND, FOR TESTING PURPOSES
     return <div className="container">
         <SearchForm handleSearch = {props.handleSearch} />
@@ -18,6 +18,7 @@ const Container = props => {
         sunsets = {props.sunsets}
         waterfalls = {props.waterfalls}
         rainbows = {props.rainbows}
+        url = {props.url}
          />
         <NotFound searchExists = {props.searchExists} error = {props.error}/>
     </div>

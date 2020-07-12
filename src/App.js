@@ -70,7 +70,11 @@ class App extends React.Component {
 
   //RENDERS CONTAINER.JS WHICH CONTAINS THE IMAGE SEARCH, THE TAG BUTTONS, AND EITHER A PHOTO GALLERY OR A "NOT FOUND PAGE" IF THERE ARE NO RESULTS.
   render() {
+    console.log(this.state.photos);
     console.log(this.state.sunsets);
+    console.log(this.state.waterfalls);
+    console.log(this.state.rainbows);
+    console.log(this.props.match)
     return (<div><a href = '/'><h1>Image Search</h1></a><Container 
     searchExists = {searchExists} 
     error = {this.state.error} 
