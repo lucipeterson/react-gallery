@@ -5,11 +5,12 @@ import ErrorPage from './ErrorPage';
 import Container from './Container';
 import TagSearch from './TagSearch';
 
-const RouteComponent = () => {
+const RouteComponent = (props) => {
     return <BrowserRouter>
             <Switch>
                     <Route exact path = '/' component = {App}/>
-                    <Route path = '/:id' render = {(props)=><Container data = {props.sunsets} />}/>
+                    <Route path = '/:id' render = {(props)=><Container {...props} data = {props.sunsets}/>}/>
+                    <Route path = '/:searchQuery' component = {App}/>
                     <Route component = {ErrorPage}/>
             </Switch>
         </BrowserRouter>

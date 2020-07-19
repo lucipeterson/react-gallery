@@ -10,15 +10,13 @@ const Container = props => {
     console.log(props.data)
     //REMOVED CONDITIONAL STATEMENT PRECLUDING NOTFOUND, FOR TESTING PURPOSES
     return <div className="container">
-        <SearchForm handleSearch = {props.handleSearch} />
-        <Nav tagSearch = {props.tagSearch} error = {props.error} /> 
+        <SearchForm handleSearch = {props.handleSearch} searchQuery = {props.searchQuery}/>
+        <Nav /> 
         <PhotoContainer 
         error = {props.error} 
         data = {props.data}
         sunsets = {props.sunsets}
         waterfalls = {props.waterfalls}
-        rainbows = {props.rainbows}
-        url = {props.url}
          />
         <NotFound searchExists = {props.searchExists} error = {props.error}/>
     </div>
